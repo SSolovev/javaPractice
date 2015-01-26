@@ -3,19 +3,18 @@ package practice.app;
 import practice.app.model.Apple;
 import practice.app.model.food.Fruit;
 
-import java.util.Locale;
-import java.util.ResourceBundle;
-import java.util.Scanner;
+import java.io.Serializable;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Hello world!
  */
-public class App {
+public class App implements Serializable{
     public static void main(String[] args) {
-        arithmeticCheck();
-        regexpCheck();
+
+        hashTableCheck();
     }
 
     private static void localeCheck() {
@@ -55,6 +54,9 @@ public class App {
 
         int a = 6;
         a += ++a + a++;
+
+        a = 6;
+        a = ++a + a;
         System.out.println("a: " + a);
 
         int b = 6;
@@ -63,6 +65,49 @@ public class App {
         b = 6;
         b = b + b++;
         System.out.println("b: " + b);
+        b = (1 >> 2) - 2;
+        System.out.println("test b: " + b);
     }
 
+    private static void stringCheck() {
+        String a ="test";
+        a+="1";
+        String b = "test1";
+        String c = "test1";
+//
+//
+        System.out.println("a == b " + (a == b));
+        System.out.println("b == c " + (b == c));
+        b="test2";
+        c="test2";
+        System.out.println("b == c " + (b == c));
+
+
+        String strA = "text";
+        String strB = "text";
+        strA += "1";
+        strB += "1";
+        System.out.println(strA != strB);
+        strA = "text1";
+        strB = "text1";
+        System.out.println(strA != strB);
+    }
+
+    private static void hashTableCheck(){
+        Hashtable ht = new Hashtable();
+        ht.put("1", "2");
+        ht.put("2", "3");
+        ht.put("3", "4");
+        ht.put("4", "2");
+
+        System.out.println(ht.contains("1"));
+        System.out.println(ht.get("3"));
+        HashMap hm = new HashMap();
+        hm.put("1", "2");
+        hm.put("2", "3");
+        hm.put("3", "4");
+        hm.put("4", "2");
+
+//        System.out.println(hm("1"));
+    }
 }
