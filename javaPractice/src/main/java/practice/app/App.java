@@ -1,5 +1,7 @@
 package practice.app;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import practice.app.model.Apple;
 import practice.app.model.food.Fruit;
 
@@ -12,9 +14,10 @@ import java.util.regex.Pattern;
  * Hello world!
  */
 public class App implements Serializable{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, FileNotFoundException {
 
-        hashTableCheck();
+       NioAndSerilizationCheck nas = new NioAndSerilizationCheck("/home/sergey");
+       nas.printAllFiles();
     }
 
     private static void localeCheck() {
