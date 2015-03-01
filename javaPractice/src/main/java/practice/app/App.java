@@ -7,17 +7,32 @@ import practice.app.model.food.Fruit;
 
 import java.io.Serializable;
 import java.util.*;
+import java.util.concurrent.ForkJoinPool;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Hello world!
  */
-public class App implements Serializable{
+public class App implements Serializable {
+
     public static void main(String[] args) throws IOException, FileNotFoundException {
 
-       NioAndSerilizationCheck nas = new NioAndSerilizationCheck("/home/sergey");
-       nas.printAllFiles();
+//       NioAndSerilizationCheck nas = new NioAndSerilizationCheck("/home/sergey");
+//       nas.printAllFiles();
+//ConcurrentExamination.checkCollections();
+        fillRandomArrayAndFindMaxElementPosition();
+    }
+
+    public static void fillRandomArrayAndFindMaxElementPosition() {
+        int[] ar = new int[1000];
+        ForkJoinPool p = new ForkJoinPool();
+        p.invoke(new RandomInitRecursiveAction(ar, 0, 1000));
+        System.out.println("ar: " + ar.length);
+        System.out.println("ar[998]=" + ar[998]);
+        int res = p.invoke(new FindMaxPositionRecursiveTask(ar, 0, 1000));
+        System.out.println("res: " + res);
+        System.out.println("ar[res]=" + ar[res]);
     }
 
     private static void localeCheck() {
@@ -73,18 +88,17 @@ public class App implements Serializable{
     }
 
     private static void stringCheck() {
-        String a ="test";
-        a+="1";
+        String a = "test";
+        a += "1";
         String b = "test1";
         String c = "test1";
 //
 //
         System.out.println("a == b " + (a == b));
         System.out.println("b == c " + (b == c));
-        b="test2";
-        c="test2";
+        b = "test2";
+        c = "test2";
         System.out.println("b == c " + (b == c));
-
 
         String strA = "text";
         String strB = "text";
@@ -96,7 +110,7 @@ public class App implements Serializable{
         System.out.println(strA != strB);
     }
 
-    private static void hashTableCheck(){
+    private static void hashTableCheck() {
         Hashtable ht = new Hashtable();
         ht.put("1", "2");
         ht.put("2", "3");
