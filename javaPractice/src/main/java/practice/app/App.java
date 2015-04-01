@@ -10,6 +10,9 @@ import java.util.*;
 import java.util.concurrent.ForkJoinPool;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import practice.app.algorithms.graph.DepthFirstSearch;
+import practice.app.algorithms.graph.Graph;
+import practice.app.algorithms.graph.GraphUtils;
 
 /**
  * Hello world!
@@ -17,11 +20,12 @@ import java.util.regex.Pattern;
 public class App implements Serializable {
 
     public static void main(String[] args) throws IOException, FileNotFoundException {
+        GraphUtils.checkDFS();
 
-//       NioAndSerilizationCheck nas = new NioAndSerilizationCheck("/home/sergey");
-//       nas.printAllFiles();
-//ConcurrentExamination.checkCollections();
-        fillRandomArrayAndFindMaxElementPosition();
+    }
+
+    public static int returnInt(byte l) {
+        return l;
     }
 
     public static void fillRandomArrayAndFindMaxElementPosition() {
