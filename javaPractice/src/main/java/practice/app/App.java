@@ -24,6 +24,34 @@ public class App implements Serializable {
 
     }
 
+
+
+
+    public static void assigmentCheck(){
+        long x = 42L;
+        long y = 44L;
+
+        System.out.print(" " + 7 + 2 + " ");
+//        System.out.print(foo() + x + 5 + " ");
+//        System.out.print(x + y + foo());
+
+        final  char a ='a';
+        int i = 100000;
+
+        switch(i){
+            case 2:
+                System.out.println("2");
+                break;
+            case 3 :
+                System.out.println("3");
+                break;
+            case a:
+                System.out.println("1");
+                break;
+            case 'c':
+                System.out.println("C");
+
+        }}
     public static int returnInt(byte l) {
         return l;
     }
