@@ -69,4 +69,14 @@ public class BreadthFirstSearch {
         }
         return l;
     }
+
+    public Map<Integer,Integer> pathToMap(int v){
+        if(!marked[v]) return null;
+        Map<Integer,Integer> l = new LinkedHashMap<>();
+        for(;v!=start;v=path[v]){
+            l.put(v,path[v]);
+//            l.add(v + " - " + path[v]);
+        }
+        return l;
+    }
 }

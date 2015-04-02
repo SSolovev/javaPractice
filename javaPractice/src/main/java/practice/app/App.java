@@ -20,7 +20,7 @@ import practice.app.algorithms.graph.GraphUtils;
 public class App implements Serializable {
 
     public static void main(String[] args) throws IOException, FileNotFoundException {
-        GraphUtils.checkDFS();
+        GraphUtils.checkSymbolGraph();
 
     }
 

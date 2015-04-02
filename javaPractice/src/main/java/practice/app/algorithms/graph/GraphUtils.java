@@ -7,13 +7,42 @@ package practice.app.algorithms.graph;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Stack;
 
 /**
  * @author sergey
  */
 public class GraphUtils {
+    public static void checkSymbolGraph() {
 
+        SymbolGraph sg = new SymbolGraph(11);
+        sg.addEdge("A","B");
+        sg.addEdge("A","C");
+        sg.addEdge("A","D");
+
+        sg.addEdge("B","E");
+
+        sg.addEdge("E","F");
+        sg.addEdge("E","G");
+        sg.addEdge("E","H");
+
+        sg.addEdge("F","G");
+        sg.addEdge("G","H");
+
+        sg.addEdge("H","K");
+        sg.addEdge("H","L");
+
+        sg.addEdge("K","L");
+        sg.addEdge("L","D");
+
+        BreadthFirstSearch bfs = new BreadthFirstSearch(sg.G(),0);
+        Map<Integer,Integer> l = bfs.pathToMap(sg.index("K"));
+        for(Map.Entry<Integer,Integer> e : l.entrySet()){
+            System.out.println(sg.name(e.getKey())+" - "+sg.name(e.getValue()));
+        }
+
+    }
     public static void checkDFS() {
         Graph g = new Graph(14);
         g.addEdge(0, 1);
