@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- *
  * @author sergey
  */
 public class DepthFirstSearch {
@@ -20,18 +19,21 @@ public class DepthFirstSearch {
     private int[] path;
     private int start;
 
+    List<Integer> listForTest = new ArrayList<>();
+
     public DepthFirstSearch(Graph g, int startVertex) {
         marked = new boolean[g.V()];
         path = new int[g.V()];
         this.start = startVertex;
         dfsSearch(g, startVertex);
 
-        System.out.println(Arrays.toString(marked));
-        System.out.println("Path : " + Arrays.toString(path));
+//        System.out.println(Arrays.toString(marked));
+//        System.out.println("Path : " + Arrays.toString(path));
 
     }
 
     public void dfsSearch(Graph g, int startVertex) {
+        listForTest.add(startVertex);
         marked[startVertex] = true;
         for (Integer neighbor : g.adj(startVertex)) {
             if (!marked[neighbor]) {

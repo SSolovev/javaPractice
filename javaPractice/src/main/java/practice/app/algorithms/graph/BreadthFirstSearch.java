@@ -9,6 +9,7 @@ public class BreadthFirstSearch {
     private boolean[] marked;
     private int[] path;
     private int start;
+    List<Integer> listForTest = new ArrayList<>();
 
     public BreadthFirstSearch(Graph g, int v) {
         marked = new boolean[g.V()];
@@ -41,6 +42,7 @@ public class BreadthFirstSearch {
 
         while (!q.isEmpty()) {
             int localV = q.poll();
+            listForTest.add(localV);
             //todo:check this
 //            marked[localV] = true;
             for (int k : g.adj(localV)) {
@@ -57,9 +59,9 @@ public class BreadthFirstSearch {
 
         }
 
-        System.out.println("++");
-        System.out.println(Arrays.toString(path));
-        System.out.println("++");
+//        System.out.println("++");
+//        System.out.println(Arrays.toString(path));
+//        System.out.println("++");
     }
     public List pathTo(int v){
         if(!marked[v]) return null;

@@ -14,32 +14,86 @@ import java.util.Stack;
  * @author sergey
  */
 public class GraphUtils {
+
     public static void checkSymbolGraph() {
 
-        SymbolGraph sg = new SymbolGraph(11);
+        SymbolGraph sg = new SymbolGraph(8);
         sg.addEdge("A","B");
-        sg.addEdge("A","C");
-        sg.addEdge("A","D");
+        sg.addEdge("A","E");
+        sg.addEdge("A","F");
 
-        sg.addEdge("B","E");
+        sg.addEdge("B","A");
+        sg.addEdge("B","G");
+        sg.addEdge("B","C");
 
+        sg.addEdge("B","G");
+        sg.addEdge("C","G");
+
+        sg.addEdge("D","H");
+        sg.addEdge("D","G");
+
+        sg.addEdge("E","A");
         sg.addEdge("E","F");
-        sg.addEdge("E","G");
-        sg.addEdge("E","H");
 
-        sg.addEdge("F","G");
-        sg.addEdge("G","H");
+        sg.addEdge("F","E");
+        sg.addEdge("F","A");
 
-        sg.addEdge("H","K");
-        sg.addEdge("H","L");
+        sg.addEdge("G","B");
+        sg.addEdge("G","D");
+        sg.addEdge("G","C");
 
-        sg.addEdge("K","L");
-        sg.addEdge("L","D");
+        sg.addEdge("H","D");
+//========================================
+        SymbolGraph sg1 = new SymbolGraph(8);
+        sg1.addEdge("A","B");
+        sg1.addEdge("A","E");
 
-        BreadthFirstSearch bfs = new BreadthFirstSearch(sg.G(),0);
-        Map<Integer,Integer> l = bfs.pathToMap(sg.index("K"));
-        for(Map.Entry<Integer,Integer> e : l.entrySet()){
-            System.out.println(sg.name(e.getKey())+" - "+sg.name(e.getValue()));
+        sg1.addEdge("B","C");
+        sg1.addEdge("B","E");
+        sg1.addEdge("B","A");
+
+        sg1.addEdge("C","D");
+        sg1.addEdge("C","B");
+        sg1.addEdge("C","F");
+
+        sg1.addEdge("D","G");
+        sg1.addEdge("D","C");
+        sg1.addEdge("D","H");
+
+        sg1.addEdge("E","F");
+        sg1.addEdge("E","B");
+        sg1.addEdge("E","A");
+
+        sg1.addEdge("F","E");
+        sg1.addEdge("F","C");
+        sg1.addEdge("G","D");
+        sg1.addEdge("G","H");
+        sg1.addEdge("H","D");
+        sg1.addEdge("H","G");
+//==============================
+        SymbolGraph sg2 = new SymbolGraph(8);
+        sg2.addEdge("A","B");
+        sg2.addEdge("A","E");
+
+
+
+        System.out.println("\ndfs=====================");
+
+        DepthFirstSearch dfs = new DepthFirstSearch(sg.G(),0);
+        for(Integer i:dfs.listForTest){
+            System.out.print(sg.name(i)+" ");
+        }
+
+        System.out.println("\nbfs=====================");
+        BreadthFirstSearch bfs = new BreadthFirstSearch(sg1.G(),0);
+        for(Integer i:bfs.listForTest){
+            System.out.print(sg1.name(i)+" ");
+        }
+
+        System.out.println("\nCC=====================");
+        ConnectionComponents cc = new ConnectionComponents(sg2.G(),0);
+        for(int i: cc.id){
+            System.out.print(i+" ");
         }
 
     }
