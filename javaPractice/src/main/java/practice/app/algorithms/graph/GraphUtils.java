@@ -14,8 +14,8 @@ import java.util.Stack;
  */
 public class GraphUtils {
 
-public static void checkDFS(){
-        Graph g = new Graph(9);
+    public static void checkDFS() {
+        Graph g = new Graph(14);
         g.addEdge(0, 1);
         g.addEdge(1, 2);
         g.addEdge(2, 3);
@@ -30,19 +30,33 @@ public static void checkDFS(){
         g.addEdge(5, 6);
 
         g.addEdge(7, 8);
+
+        g.addEdge(9, 10);
+        g.addEdge(9, 13);
+        g.addEdge(10, 11);
+        g.addEdge(10, 12);
+
+        g.addEdge(11, 12);
+        g.addEdge(12, 13);
+
         g.toString();
 
-         System.out.println("------------------");
-         DepthFirstSearch d = new DepthFirstSearch(g,0);
-         System.out.println(d.hasPathTo(6));
-         System.out.println(d.pathTo(7));
-         System.out.println("------------------");
-         Stack s =d.pathToFromBook(7);
-         while(!s.empty()){
-                System.out.println(s.pop());
-         }
-  
-}
+        System.out.println("------------------");
+        DepthFirstSearch d = new DepthFirstSearch(g, 0);
+        System.out.println(d.hasPathTo(6));
+        System.out.println(d.pathTo(7));
+        System.out.println("------------------");
+        Stack s = d.pathToFromBook(7);
+        while (!s.empty()) {
+            System.out.println(s.pop());
+        }
+        System.out.println("------------------");
+        ConnectionComponents cc = new ConnectionComponents(g, 0);
+        System.out.println("cc.isConnected(8, 9)" + cc.isConnected(8, 9));
+        System.out.println("cc.isConnected(2, 6)" + cc.isConnected(2, 6));
+        System.out.println("cc.isConnected(7, 12)" + cc.isConnected(7, 12));
+        System.out.println(Arrays.toString(cc.id));
+    }
 
     public static int degree(Graph G, int v) {
         int degree = 0;
