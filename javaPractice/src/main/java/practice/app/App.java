@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 import practice.app.algorithms.graph.DepthFirstSearch;
 import practice.app.algorithms.graph.Graph;
 import practice.app.algorithms.graph.GraphUtils;
+import practice.app.threads.DeadLock;
 
 /**
  * Hello world!
@@ -20,8 +21,25 @@ import practice.app.algorithms.graph.GraphUtils;
 public class App implements Serializable {
 
     public static void main(String[] args) throws IOException, FileNotFoundException {
-        GraphUtils.checkSymbolGraph();
+//        GraphUtils.checkSymbolGraph();
+//        DeadLock.test();
 
+        Map<String,String> m =new HashMap<>();
+        m.put(null,null);
+        m.put(null,"W1");
+        m.put(null,"W2");
+        m.put("WW1",null);
+        m.put("WW2",null);
+
+        System.out.println(m);
+        System.out.println(m.get(null));
+        Set<String> s =new HashSet<>();
+        s.add("Q1");
+        s.add(null);
+        s.add("Q2");
+        s.add(null);
+
+        System.out.println(s);
     }
 
 
