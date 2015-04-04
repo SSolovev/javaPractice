@@ -32,7 +32,7 @@ public class Bag<T> implements Iterable {
     }
 
     @Override
-    public Iterator iterator() {
+    public Iterator<T> iterator() {
        return adjacentList.iterator();
     }
 
