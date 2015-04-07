@@ -2,6 +2,8 @@ package practice.app;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
+import practice.app.algorithms.sort.bubble.BubbleSort;
 import practice.app.model.Apple;
 import practice.app.model.food.Fruit;
 
@@ -23,23 +25,25 @@ public class App implements Serializable {
     public static void main(String[] args) throws IOException, FileNotFoundException {
 //        GraphUtils.checkSymbolGraph();
 //        DeadLock.test();
-
-        Map<String,String> m =new HashMap<>();
-        m.put(null,null);
-        m.put(null,"W1");
-        m.put(null,"W2");
-        m.put("WW1",null);
-        m.put("WW2",null);
-
-        System.out.println(m);
-        System.out.println(m.get(null));
-        Set<String> s =new HashSet<>();
-        s.add("Q1");
-        s.add(null);
-        s.add("Q2");
-        s.add(null);
-
-        System.out.println(s);
+int[] a ={1,6,8,7,9,0};
+        BubbleSort.bubleSort(a);
+        System.out.println(Arrays.toString(a));
+//        Map<String,String> m =new HashMap<>();
+//        m.put(null,null);
+//        m.put(null,"W1");
+//        m.put(null,"W2");
+//        m.put("WW1",null);
+//        m.put("WW2",null);
+//
+//        System.out.println(m);
+//        System.out.println(m.get(null));
+//        Set<String> s =new HashSet<>();
+//        s.add("Q1");
+//        s.add(null);
+//        s.add("Q2");
+//        s.add(null);
+//
+//        System.out.println(s);
     }
 
 
