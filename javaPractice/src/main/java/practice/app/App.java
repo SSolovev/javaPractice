@@ -22,8 +22,11 @@ public class App implements Serializable {
     public static void main(String[] args) throws IOException {
 
         int[] a = {1, 6, 8, 7, 9, 0};
-        SortAlgorithms.bubbleSort(a);
+        SortAlgorithms.insertionSort(a);
+
+
         System.out.println(Arrays.toString(a));
+        SortAlgorithms.averageTime(5,5000);
     }
 
 
