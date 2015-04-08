@@ -29,6 +29,12 @@ public class App implements Serializable {
         SortAlgorithms.averageTime(5,5000);
         System.out.println("===============================================");
         SortAlgorithms.averageTimeDoubleSort(5,5000);
+        System.out.println("---------------------------------------------");
+        int[] a2 = SortAlgorithms.createRandomArr(10);
+        System.out.println(Arrays.toString(a2));
+       int m = SortAlgorithms.median(a2);
+        System.out.println("mediana: "+m);
+       
     }
 
 

@@ -1,5 +1,6 @@
 package practice.app.algorithms.sort;
 
+import java.util.Arrays;
 import practice.app.model.Person;
 
 /**
@@ -80,6 +81,31 @@ public class SortAlgorithms {
 
     }
 
+    public static int median(int[] a) {
+
+        int nElems = a.length;
+        int medianIndex = nElems / 2;
+        int median = 0;
+        int in, out;
+        for (out = 1; out < nElems; out++) {
+            int temp = a[out];
+            in = out;
+
+            while (in > 0 && a[in - 1] >= temp) {
+                a[in] = a[in - 1];
+                --in;
+
+            }
+            a[in] = temp;
+            if (out == medianIndex) {
+                median = a[out-1];
+            }
+        }
+        System.out.println(Arrays.toString(a));
+        return median;
+
+    }
+
     public static void insertionSortObject(Person[] a) {
 
         int nElems = a.length;
@@ -121,7 +147,6 @@ public class SortAlgorithms {
         long end = System.currentTimeMillis() - start;
         System.out.println("Average bubble sort: " + (end / cycles));
 
-
         start = System.currentTimeMillis();
         for (int i = 0; i < cycles; i++) {
             int[] a = createRandomArr(arrayAmount);
@@ -137,7 +162,6 @@ public class SortAlgorithms {
         }
         end = System.currentTimeMillis() - start;
         System.out.println("Average select from book sort: " + (end / cycles));
-
 
         start = System.currentTimeMillis();
         for (int i = 0; i < cycles; i++) {
@@ -155,7 +179,6 @@ public class SortAlgorithms {
         end = System.currentTimeMillis() - start;
         System.out.println("Average insertion from book sort: " + (end / cycles));
     }
-
 
     public static void averageTimeDoubleSort(int cycles, int arrayAmount) {
         int[] a = createRandomArr(arrayAmount);
