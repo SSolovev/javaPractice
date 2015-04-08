@@ -32,7 +32,7 @@ public class SortAlgorithms {
     }
 
     public static void selectSortFromBook(int[] array) {
-        int out,in,min;
+        int out, in, min;
         int nElems = array.length;
         for (out = 0; out < nElems - 1; out++) {
             min = out;
@@ -156,4 +156,46 @@ public class SortAlgorithms {
         System.out.println("Average insertion from book sort: " + (end / cycles));
     }
 
+
+    public static void averageTimeDoubleSort(int cycles, int arrayAmount) {
+        int[] a = createRandomArr(arrayAmount);
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < cycles; i++) {
+            bubbleSort(a);
+        }
+        long end = System.currentTimeMillis() - start;
+        System.out.println("Average bubble sort: " + (end / cycles));
+
+        a = createRandomArr(arrayAmount);
+        start = System.currentTimeMillis();
+        for (int i = 0; i < cycles; i++) {
+            selectSort(a);
+        }
+        end = System.currentTimeMillis() - start;
+        System.out.println("Average select sort: " + (end / cycles));
+
+        a = createRandomArr(arrayAmount);
+        start = System.currentTimeMillis();
+        for (int i = 0; i < cycles; i++) {
+            selectSortFromBook(a);
+        }
+        end = System.currentTimeMillis() - start;
+        System.out.println("Average select from book sort: " + (end / cycles));
+
+        a = createRandomArr(arrayAmount);
+        start = System.currentTimeMillis();
+        for (int i = 0; i < cycles; i++) {
+            insertionSort(a);
+        }
+        end = System.currentTimeMillis() - start;
+        System.out.println("Average insertion sort: " + (end / cycles));
+
+        a = createRandomArr(arrayAmount);
+        start = System.currentTimeMillis();
+        for (int i = 0; i < cycles; i++) {
+            insertionSortFromBook(a);
+        }
+        end = System.currentTimeMillis() - start;
+        System.out.println("Average insertion from book sort: " + (end / cycles));
+    }
 }

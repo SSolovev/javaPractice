@@ -27,6 +27,8 @@ public class App implements Serializable {
 
         System.out.println(Arrays.toString(a));
         SortAlgorithms.averageTime(5,5000);
+        System.out.println("===============================================");
+        SortAlgorithms.averageTimeDoubleSort(5,5000);
     }
 
 
