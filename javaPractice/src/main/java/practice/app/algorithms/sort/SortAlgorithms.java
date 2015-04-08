@@ -1,11 +1,11 @@
-package practice.app.algorithms.sort.bubble;
+package practice.app.algorithms.sort;
 
 /**
  * Created by SeASolovev on 07.04.2015.
  */
-public class BubbleSort {
+public class SortAlgorithms {
 
-    public static void bubleSort(int[] array) {
+    public static void bubbleSort(int[] array) {
 
         for (int j = array.length - 1; j > 1; j--) {
             for (int i = 0; i < j; i++) {
