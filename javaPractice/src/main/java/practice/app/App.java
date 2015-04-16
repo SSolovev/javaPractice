@@ -1,13 +1,10 @@
 package practice.app;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
-import practice.app.algorithms.sort.SortAlgorithms;
-import practice.app.algorithms.struct.QueueUtils;
+import practice.app.algorithms.struct.PostfixCalculation;
 import practice.app.model.Apple;
 import practice.app.model.food.Fruit;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
 import java.util.concurrent.ForkJoinPool;
@@ -35,8 +32,33 @@ public class App implements Serializable {
 //        System.out.println(Arrays.toString(a2));
 //       int m = SortAlgorithms.median(a2);
 //        System.out.println("mediana: "+m);
+        char[] expression = {'1', '+', '3', '*', '5', '-', '2'};
+        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression));
 
-        QueueUtils.checkQueueLimkBased();
+        char[] expression2 = {'1', '+', '3', '*', '5', '*', '2'};
+        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression2));
+
+        char[] expression3 = {'1', '*', '3', '/', '5'};
+        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression3));
+
+        char[] expression4 = {'1', '*', '3', '+', '5','*','6'};
+        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression4));
+
+        char[] expression5 = {'1', '+', '2', '*', '(','3','-','4',')'};
+        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression5));
+
+        char[] expression6 = {'(','1', '+', '2',')', '*', '(', '3', '-','4',')'};
+        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression6));
+
+
+
+        char[] expression8 = {'(', '(','1', '+', '2',')', '*', '3', ')', '-','4'};
+        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression8));
+
+
+        char[] expression7 = {'1', '+', '2', '*', '(', '3', '-','4', '/','(', '5', '+','6',')',')'};
+        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression7));
+//        QueueUtils.checkQueueLimkBased();
     }
 
 
@@ -60,7 +82,7 @@ public class App implements Serializable {
     }
 
 
-    public static void assigmentCheck(){
+    public static void assigmentCheck() {
         long x = 42L;
         long y = 44L;
 
@@ -68,14 +90,14 @@ public class App implements Serializable {
 //        System.out.print(foo() + x + 5 + " ");
 //        System.out.print(x + y + foo());
 
-        final  char a ='a';
+        final char a = 'a';
         int i = 100000;
 
-        switch(i){
+        switch (i) {
             case 2:
                 System.out.println("2");
                 break;
-            case 3 :
+            case 3:
                 System.out.println("3");
                 break;
             case a:
@@ -84,7 +106,9 @@ public class App implements Serializable {
             case 'c':
                 System.out.println("C");
 
-        }}
+        }
+    }
+
     public static int returnInt(byte l) {
         return l;
     }
