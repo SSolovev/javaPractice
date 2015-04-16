@@ -13,21 +13,21 @@ public class QueueLinkBased {
 
     public void add(int value) {
 
-        Link tmp = new Link(value, first, null);
-        if (first != null) {
-            first.prev = tmp;
-        } else {
-            last = tmp;
+        Link tmp = new Link(value);
+        if (first == null) {
+            first = tmp;
+        }else{
+            last.next=tmp;
         }
-        first = tmp;
+        last = tmp;
         size++;
     }
 
     public int poll() {
-        Link res = last;
-        last = last.prev;
-        if (last != null) {
-            last.next = null;
+        Link res = first;
+
+        if (first != null) {
+            first = first.next;
         }
 
         size--;
@@ -47,14 +47,16 @@ public class QueueLinkBased {
 
     public boolean remove(int value) {
         Link tmp = first;
-        while (tmp != null) {
-            if (tmp.value == value) {
-                tmp.next.prev = tmp.prev;
-                tmp.prev.next = tmp.next;
+        Link tmpNext = first.next;
+        while (tmpNext != null) {
+            if ( tmpNext.value == value) {
+                tmp.next = tmpNext.next;
+//                tmp.prev.next = tmp.next;
                 size--;
                 return true;
             }
             tmp = tmp.next;
+            tmpNext = tmp.next;
         }
         return false;
     }
@@ -70,12 +72,9 @@ public class QueueLinkBased {
     static class Link {
         int value;
         Link next;
-        Link prev;
 
-        Link(int value, Link next, Link prev) {
+        Link(int value) {
             this.value = value;
-            this.next = next;
-            this.prev = prev;
         }
     }
 }

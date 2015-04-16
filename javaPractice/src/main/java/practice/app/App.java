@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import practice.app.algorithms.sort.SortAlgorithms;
+import practice.app.algorithms.struct.QueueUtils;
 import practice.app.model.Apple;
 import practice.app.model.food.Fruit;
 
@@ -21,19 +22,19 @@ public class App implements Serializable {
 
     public static void main(String[] args) throws IOException {
 
-        int[] a = {1, 6, 8, 7, 9, 0};
-        SortAlgorithms.insertionSort(a);
-
-
-        System.out.println(Arrays.toString(a));
-        SortAlgorithms.averageTime(5,5000);
-        System.out.println("===============================================");
-        SortAlgorithms.averageTimeDoubleSort(5,5000);
-        System.out.println("---------------------------------------------");
-        int[] a2 = SortAlgorithms.createRandomArr(10);
-        System.out.println(Arrays.toString(a2));
-       int m = SortAlgorithms.median(a2);
-        System.out.println("mediana: "+m);
+//        int[] a = {1, 6, 8, 7, 9, 0};
+//        SortAlgorithms.insertionSort(a);
+//
+//
+//        System.out.println(Arrays.toString(a));
+//        SortAlgorithms.averageTime(5,5000);
+//        System.out.println("===============================================");
+//        SortAlgorithms.averageTimeDoubleSort(5,5000);
+//        System.out.println("---------------------------------------------");
+//        int[] a2 = SortAlgorithms.createRandomArr(10);
+//        System.out.println(Arrays.toString(a2));
+//       int m = SortAlgorithms.median(a2);
+//        System.out.println("mediana: "+m);
 
         QueueUtils.checkQueueLimkBased();
     }

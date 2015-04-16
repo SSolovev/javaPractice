@@ -3,7 +3,7 @@ package practice.app.algorithms.struct;
 /**
  * Created by SeASolovev on 15.04.2015.
  */
-public enum Operands {
+public enum Operator {
     PLUS("+"),
     MINUS("-"),
     MULTIPLY("*"),
@@ -11,7 +11,7 @@ public enum Operands {
 
     private String value;
 
-    Operands(String value) {
+    Operator(String value) {
         this.value = value;
     }
 
@@ -19,8 +19,8 @@ public enum Operands {
         return value;
     }
 
-    public static Operands fromString(String val){
-        for (Operands o : Operands.values()){
+    public static Operator fromString(String val){
+        for (Operator o : Operator.values()){
             if(o.getValue().equals(val)){
                 return o;
             }
