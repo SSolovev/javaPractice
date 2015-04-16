@@ -34,7 +34,8 @@ public class App implements Serializable {
         System.out.println(Arrays.toString(a2));
        int m = SortAlgorithms.median(a2);
         System.out.println("mediana: "+m);
-       
+
+        QueueUtils.checkQueueLimkBased();
     }
 
 
