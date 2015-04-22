@@ -1,5 +1,6 @@
 package practice.app;
 
+import practice.app.algorithms.hanoy.HanoyTower;
 import practice.app.algorithms.struct.PostfixCalculation;
 import practice.app.model.Apple;
 import practice.app.model.food.Fruit;
@@ -32,33 +33,35 @@ public class App implements Serializable {
 //        System.out.println(Arrays.toString(a2));
 //       int m = SortAlgorithms.median(a2);
 //        System.out.println("mediana: "+m);
-        char[] expression = {'1', '+', '3', '*', '5', '-', '2'};
-        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression));
-
-        char[] expression2 = {'1', '+', '3', '*', '5', '*', '2'};
-        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression2));
-
-        char[] expression3 = {'1', '*', '3', '/', '5'};
-        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression3));
-
-        char[] expression4 = {'1', '*', '3', '+', '5','*','6'};
-        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression4));
-
-        char[] expression5 = {'1', '+', '2', '*', '(','3','-','4',')'};
-        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression5));
-
-        char[] expression6 = {'(','1', '+', '2',')', '*', '(', '3', '-','4',')'};
-        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression6));
-
-
-
-        char[] expression8 = {'(', '(','1', '+', '2',')', '*', '3', ')', '-','4'};
-        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression8));
-
-
-        char[] expression7 = {'1', '+', '2', '*', '(', '3', '-','4', '/','(', '5', '+','6',')',')'};
-        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression7));
+//        char[] expression = {'1', '+', '3', '*', '5', '-', '2'};
+//        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression));
+//
+//        char[] expression2 = {'1', '+', '3', '*', '5', '*', '2'};
+//        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression2));
+//
+//        char[] expression3 = {'1', '*', '3', '/', '5'};
+//        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression3));
+//
+//        char[] expression4 = {'1', '*', '3', '+', '5','*','6'};
+//        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression4));
+//
+//        char[] expression5 = {'1', '+', '2', '*', '(','3','-','4',')'};
+//        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression5));
+//
+//        char[] expression6 = {'(','1', '+', '2',')', '*', '(', '3', '-','4',')'};
+//        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression6));
+//
+//
+//
+//        char[] expression8 = {'(', '(','1', '+', '2',')', '*', '3', ')', '-','4'};
+//        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression8));
+//
+//
+//        char[] expression7 = {'1', '+', '2', '*', '(', '3', '-','4', '/','(', '5', '+','6',')',')'};
+//        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression7));
 //        QueueUtils.checkQueueLimkBased();
+
+        HanoyTower.hanoyTest();
     }
 
 
