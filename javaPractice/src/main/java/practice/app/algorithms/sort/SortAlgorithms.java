@@ -88,15 +88,7 @@ public class SortAlgorithms {
         int median = 0;
         int in, out;
         for (out = 1; out < nElems; out++) {
-            int temp = a[out];
-            in = out;
-
-            while (in > 0 && a[in - 1] >= temp) {
-                a[in] = a[in - 1];
-                --in;
-
-            }
-            a[in] = temp;
+    
             if (out == medianIndex) {
                 median = a[out-1];
             }
