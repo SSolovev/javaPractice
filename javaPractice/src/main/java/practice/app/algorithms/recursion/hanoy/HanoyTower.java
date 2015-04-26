@@ -1,4 +1,4 @@
-package practice.app.algorithms.hanoy;
+package practice.app.algorithms.recursion.hanoy;
 
 import java.util.Stack;
 

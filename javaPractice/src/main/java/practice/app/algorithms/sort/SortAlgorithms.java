@@ -88,9 +88,9 @@ public class SortAlgorithms {
         int median = 0;
         int in, out;
         for (out = 1; out < nElems; out++) {
-    
+
             if (out == medianIndex) {
-                median = a[out-1];
+                median = a[out - 1];
             }
         }
         System.out.println(Arrays.toString(a));
@@ -212,5 +212,46 @@ public class SortAlgorithms {
         }
         end = System.currentTimeMillis() - start;
         System.out.println("Average insertion from book sort: " + (end / cycles));
+    }
+
+    public static void mergeSort(int from, int to, int[] a) {
+
+        if (to == from) {
+            return;
+        }
+        int middle = (to + from) / 2;
+        mergeSort(from, middle, a);
+        mergeSort(middle + 1, to, a);
+        merge(a, from, middle, to);
+
+    }
+
+    static void merge(int[] a, int from, int middle, int to) {
+        int[] b = new int[to - from + 1];
+        int f = from;
+        int t = to;
+        middle++;
+        int mid = middle - 1;
+        int bIndex = 0;
+
+        while (from <= mid && middle <= to) {
+            if (a[from] < a[middle]) {
+                b[bIndex++] = a[from++];
+
+            } else {
+                b[bIndex++] = a[middle++];
+            }
+        }
+        while (from <= mid) {
+            b[bIndex++] = a[from++];
+        }
+
+        while ((middle) <= to) {
+            b[bIndex++] = a[middle++];
+        }
+
+        for (int i = 0; i < b.length; i++) {
+            a[f + i] = b[i];
+        }
     }
 }

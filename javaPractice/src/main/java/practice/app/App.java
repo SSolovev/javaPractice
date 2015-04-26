@@ -1,6 +1,6 @@
 package practice.app;
 
-import practice.app.algorithms.hanoy.HanoyTower;
+import practice.app.algorithms.recursion.hanoy.HanoyTower;
 import practice.app.algorithms.struct.PostfixCalculation;
 import practice.app.model.Apple;
 import practice.app.model.food.Fruit;
@@ -11,6 +11,8 @@ import java.util.*;
 import java.util.concurrent.ForkJoinPool;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import practice.app.algorithms.recursion.Anagram;
+import practice.app.algorithms.sort.SortAlgorithms;
 
 
 /**
@@ -61,7 +63,11 @@ public class App implements Serializable {
 //        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression7));
 //        QueueUtils.checkQueueLimkBased();
 
-        HanoyTower.hanoyTest();
+//        HanoyTower.hanoyTest();
+//        Anagram.anagramTest();
+        int[] a = {1, 6, 8, 7, 9, 0,4};
+        SortAlgorithms.mergeSort(0,a.length-1,a);
+        System.out.println(Arrays.toString(a));
     }
 
 
