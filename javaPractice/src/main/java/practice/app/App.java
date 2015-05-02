@@ -12,8 +12,9 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import practice.app.algorithms.recursion.Anagram;
+import practice.app.algorithms.recursion.Backpack;
+import practice.app.algorithms.recursion.Combinations;
 import practice.app.algorithms.sort.SortAlgorithms;
-
 
 /**
  * Hello world!
@@ -62,14 +63,35 @@ public class App implements Serializable {
 //        char[] expression7 = {'1', '+', '2', '*', '(', '3', '-','4', '/','(', '5', '+','6',')',')'};
 //        System.out.println(PostfixCalculation.makePostfixForSimpleExpression(expression7));
 //        QueueUtils.checkQueueLimkBased();
-
 //        HanoyTower.hanoyTest();
 //        Anagram.anagramTest();
-        int[] a = {1, 6, 8, 7, 9, 0,4};
-        SortAlgorithms.mergeSort(0,a.length-1,a);
-        System.out.println(Arrays.toString(a));
-    }
+//        int[] a = {8, 2, 3, 1, 9, 0,4};
+        char[] c = {'A', 'B', 'C', 'D', 'E'};
+    char[] c2 = {'B', 'C', 'D', 'E'};
+    char[] c3 = {'B', 'C', 'D'};
+    char[] c4 = {'A', 'B', 'C'};
+//        SortAlgorithms.mergeSort(0,a.length-1,a);
+//        System.out.println(Arrays.toString(a));
+//        Stack s2= Backpack.calculateBag(a,7);
+//      Stack s =  Backpack.calculateBagStack(a, 7);
+//    Combinations.combi2(c3, new char[3], 0,0);
+//    Combinations.findAllCombinations(c2,new char[4], 0);
+//    Combinations.findAllCombinations2(c4, new char[3],0,0);
+//    Stack <char[]> s = new Stack<char[]>();
+//    Combinations.combi3(c2, s, 2);
+//    List<char[]> s = Combinations.combi4(c, 3);
+    
+    List<char[]> s = Combinations.subsetCombinations(c2, 2);
+        for (char[] arr : s) {
+            System.out.println(Arrays.toString(arr));
+        }
+        System.out.println("====================================");
+       s = Combinations.subsetCombinations(c, 3);
+        for (char[] arr : s) {
+            System.out.println(Arrays.toString(arr));
+        }
 
+    }
 
     public static void mapNullCheck() {
         Map<String, String> m = new HashMap<>();
@@ -89,7 +111,6 @@ public class App implements Serializable {
 
         System.out.println(s);
     }
-
 
     public static void assigmentCheck() {
         long x = 42L;
