@@ -283,4 +283,45 @@ public class SortAlgorithms {
         }
 
     }
+
+    public static int partitionFrombook(int[] items, int left, int right, int pivot) {
+        int leftPtr = left - 1;
+        int rightPtr = right + 1;
+        while (true) {
+
+            while (leftPtr < right && items[++leftPtr] < pivot) {
+            }
+            while (rightPtr > left && items[--rightPtr] > pivot) {
+            }
+            if (leftPtr >= rightPtr) {
+                break;
+            } else {
+                swap(items, leftPtr, rightPtr);
+            }
+        }
+
+        return leftPtr;
+    }
+
+    public static void partition(int[] items, int median) {
+        for (int i = 0, j = items.length - 1; i < j; ) {
+            if (items[i] >= median) {
+                if (items[j] < median) {
+                    swap(items, i, j);
+                    i++;
+                    j--;
+                } else {
+                    j--;
+                }
+
+            } else if (items[j] < median) {
+                i++;
+            } else {
+                i++;
+                j--;
+            }
+
+        }
+
+    }
 }

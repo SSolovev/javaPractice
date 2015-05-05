@@ -11,6 +11,7 @@ import java.util.*;
 import java.util.concurrent.ForkJoinPool;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import practice.app.algorithms.recursion.Anagram;
 import practice.app.algorithms.recursion.Backpack;
 import practice.app.algorithms.recursion.Combinations;
@@ -23,11 +24,15 @@ public class App implements Serializable {
 
     public static void main(String[] args) throws IOException {
 
-        int[] a = {1, 6, 8, 7, 9, 0,11,10,3};
+        int[] a = {1, 6, 8, 7, 9, 0, 11, 10, 3};
 //        SortAlgorithms.insertionSort(a);
-        SortAlgorithms.shellSort(a);
-//
+//        SortAlgorithms.shellSort(a);
+        SortAlgorithms.partition(a, 7);
         System.out.println(Arrays.toString(a));
+        a = new int[]{1, 6, 8, 7, 9, 0, 11, 10, 3};
+       int pos = SortAlgorithms.partitionFrombook(a, 0, a.length-1, 7);
+        System.out.println(Arrays.toString(a));
+        System.out.println("Pos: "+pos);
 //        SortAlgorithms.averageTime(5,5000);
 //        System.out.println("===============================================");
 //        SortAlgorithms.averageTimeDoubleSort(5,5000);
@@ -67,9 +72,9 @@ public class App implements Serializable {
 //        Anagram.anagramTest();
 //        int[] a = {8, 2, 3, 1, 9, 0,4};
         char[] c = {'A', 'B', 'C', 'D', 'E'};
-    char[] c2 = {'B', 'C', 'D', 'E'};
-    char[] c3 = {'B', 'C', 'D'};
-    char[] c4 = {'A', 'B', 'C'};
+        char[] c2 = {'B', 'C', 'D', 'E'};
+        char[] c3 = {'B', 'C', 'D'};
+        char[] c4 = {'A', 'B', 'C'};
 //        SortAlgorithms.mergeSort(0,a.length-1,a);
 //        System.out.println(Arrays.toString(a));
 //        Stack s2= Backpack.calculateBag(a,7);
@@ -80,7 +85,7 @@ public class App implements Serializable {
 //    Stack <char[]> s = new Stack<char[]>();
 //    Combinations.combi3(c2, s, 2);
 //    List<char[]> s = Combinations.combi4(c, 3);
-    
+
 //    List<char[]> s = Combinations.subsetCombinations(c2, 2);
 //        for (char[] arr : s) {
 //            System.out.println(Arrays.toString(arr));
