@@ -1,6 +1,7 @@
 package practice.app.algorithms.sort;
 
 import java.util.Arrays;
+
 import practice.app.model.Person;
 
 /**
@@ -253,5 +254,33 @@ public class SortAlgorithms {
         for (int i = 0; i < b.length; i++) {
             a[f + i] = b[i];
         }
+    }
+
+
+    public static void shellSort(int[] items) {
+
+        int h = 1;
+        do {
+            h = h * 3 + 1;
+        } while (h < items.length);
+
+
+        while ((h = (h - 1) / 3) > 0) {
+
+            for (int outer = h; outer < items.length; outer++) {
+
+                int inner = outer;
+                int tmp = items[inner];
+                while (inner - h >= 0 && tmp < items[inner - h]) {
+                    items[inner] = items[inner - h];
+                    items[inner - h] = tmp;
+                    inner = inner - h;
+
+                }
+//                items[inner] = tmp;
+            }
+
+        }
+
     }
 }

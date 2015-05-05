@@ -23,11 +23,11 @@ public class App implements Serializable {
 
     public static void main(String[] args) throws IOException {
 
-//        int[] a = {1, 6, 8, 7, 9, 0};
+        int[] a = {1, 6, 8, 7, 9, 0,11,10,3};
 //        SortAlgorithms.insertionSort(a);
+        SortAlgorithms.shellSort(a);
 //
-//
-//        System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(a));
 //        SortAlgorithms.averageTime(5,5000);
 //        System.out.println("===============================================");
 //        SortAlgorithms.averageTimeDoubleSort(5,5000);
@@ -81,15 +81,15 @@ public class App implements Serializable {
 //    Combinations.combi3(c2, s, 2);
 //    List<char[]> s = Combinations.combi4(c, 3);
     
-    List<char[]> s = Combinations.subsetCombinations(c2, 2);
-        for (char[] arr : s) {
-            System.out.println(Arrays.toString(arr));
-        }
-        System.out.println("====================================");
-       s = Combinations.subsetCombinations(c, 3);
-        for (char[] arr : s) {
-            System.out.println(Arrays.toString(arr));
-        }
+//    List<char[]> s = Combinations.subsetCombinations(c2, 2);
+//        for (char[] arr : s) {
+//            System.out.println(Arrays.toString(arr));
+//        }
+//        System.out.println("====================================");
+//       s = Combinations.subsetCombinations(c, 3);
+//        for (char[] arr : s) {
+//            System.out.println(Arrays.toString(arr));
+//        }
 
     }
 
