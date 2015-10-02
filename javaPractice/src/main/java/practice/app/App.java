@@ -8,7 +8,10 @@ import practice.app.model.food.Fruit;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ForkJoinPool;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,26 +20,21 @@ import practice.app.algorithms.recursion.Anagram;
 import practice.app.algorithms.recursion.Backpack;
 import practice.app.algorithms.recursion.Combinations;
 import practice.app.algorithms.sort.SortAlgorithms;
+import practice.app.threads.MapTest;
 
 /**
  * Hello world!
  */
 public class App implements Serializable {
 
+
     public static void main(String[] args) throws IOException {
+//        findPrimeNumbers(200);
+//        System.out.println(calcNOD(48, 36));
+//        System.out.println(calcNOK(24, 60));
 
-        BinaryTree tree = new BinaryTree();
-        tree.insert(1);
-        tree.insert(2);
-        tree.insert(5);
-
-        tree.insert(4);
-        tree.insert(8);
-        tree.insert(7);
-        tree.insert(6);
-        tree.print(tree.begin);
-        tree.searchInDepth(tree.begin);
     }
+
 
     public static void mapNullCheck() {
         Map<String, String> m = new HashMap<>();

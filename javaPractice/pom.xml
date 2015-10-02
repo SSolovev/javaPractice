@@ -27,5 +27,11 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-  </dependencies>
+      <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>1.4.189</version>
+      </dependency>
+
+    </dependencies>
 </project>
