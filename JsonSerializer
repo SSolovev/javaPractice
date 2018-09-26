@@ -1,0 +1,91 @@
+https://stackoverflow.com/questions/31056215/how-to-access-default-jackson-serialization-in-a-custom-serializer
+
+package my.test;
+
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+
+import java.io.IOException;
+
+/**
+ * Created by sergey on 26.09.2018.
+ */
+public class EnumSerializer extends JsonSerializer<Class> {
+    private final JsonSerializer<Object> defaultSerializer;
+
+    public EnumSerializer(JsonSerializer<Object> defaultSerializer) {
+        this.defaultSerializer = defaultSerializer;
+    }
+
+//
+//    public EnumSerializer() {
+//        this(null);
+//    }
+//
+//    public EnumSerializer(Class t) {
+//        super((Class) t);
+//    }
+
+    @Override
+    public void serialize(
+            Class value, JsonGenerator jgen, SerializerProvider provider)
+            throws IOException, JsonProcessingException {
+
+        if (value.isEnum()) {
+            System.out.println("Bingo!");
+            jgen.writeStartObject();
+            Object[] objects = value.getEnumConstants();
+
+                jgen.writeObjectField("enum", objects);
+//            }
+            jgen.writeEndObject();
+        } else {
+
+            defaultSerializer.serialize(value, jgen, provider);
+//            jgen.writeObject(value);
+//            jgen.writeNumberField("id", 11);
+//            jgen.writeObjectField("item", value);
+        }
+
+
+
+    }
+}
+
+
+
+=======
+public class MyClassSerializerModifier extends BeanSerializerModifier {
+    @Override
+    public JsonSerializer<?> modifySerializer(SerializationConfig config, BeanDescription beanDesc, JsonSerializer<?> serializer) {
+        if (beanDesc.getBeanClass() == Class.class) {
+//        if (beanDesc.getBeanClass().isEnum()) {
+            return new EnumSerializer((JsonSerializer<Object>) serializer);
+       }
+        return serializer;
+    }
+}
+===========
+
+
+    public static void tst() throws JsonProcessingException {
+
+//        System.out.println(TestEnum.class instanceof Enum);
+        ObjectMapper mapper = new ObjectMapper();
+//        mapper.configure(SerializationFeature.WRITE_ENUMS_USING_TO_STRING, true);
+        SimpleModule module = new SimpleModule();
+//        module.addSerializer(Class.class, new EnumSerializer());
+        module.setSerializerModifier(new MyClassSerializerModifier());
+        mapper.registerModule(module);
+
+        TestEnum e = TestEnum.ACTIVE;
+        String serialized = mapper.writeValueAsString(TestEnum.class);
+//        String serialized = mapper.writeValueAsString(e);
+        System.out.println(serialized);
+
+        serialized = mapper.writeValueAsString(TestBean.class);
+        System.out.println(serialized);
+    }
